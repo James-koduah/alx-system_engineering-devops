@@ -1,7 +1,8 @@
 #!/bin/bash
-for FILE in /var/log/nginx/[[:upper:]]*
-do
-        cp $FILE /tmp/u
-done
+if [[:upper:]]* 
+
+
+
+
 
 
