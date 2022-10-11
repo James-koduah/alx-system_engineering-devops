@@ -1,2 +1,2 @@
 #!/bin/bash
-sort | uniq -u | grep -vwE '\w{1,1}'
+sort | uniq -c | grep -e '^\s.*1\s' | awk '{print $NF}'
