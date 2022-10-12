@@ -1,2 +1,3 @@
 #!/bin/bash
-echo $((13 + $TRUEKNOWLEDG))
+export 
+echo $((13 + $TRUEKNOWLEDGE))
