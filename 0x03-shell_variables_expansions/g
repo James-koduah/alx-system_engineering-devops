@@ -1,6 +1,0 @@
-#!/bin/bash
-echo type commit message
-read MESS
-git add .
-git commit -m $MESS
-git push
