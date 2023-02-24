@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 #displays To infinity and beyond indefinitely
 
-sl=2
 
 while true
 do
 	echo 'To infinity and beyond'
-	sleep $sl
-	sl=$((sl + 2))
+	sleep 2 
 done
