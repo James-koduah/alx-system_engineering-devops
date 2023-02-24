@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#FizzBuzz implementation
+
+for i in {1..100}
+do
+	tr=$((i % 3))
+	fi=$((i % 5))
+	
+	if [ "$tr" -eq 0 ] && [ "$fi" -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ "$tr" -eq 0 ]
+	then
+		echo "Fizz"
+	elif [ "$fi" -eq 0 ]
+	then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done
