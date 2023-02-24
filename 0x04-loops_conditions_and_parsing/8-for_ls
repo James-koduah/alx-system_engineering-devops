@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#display the content of the current directory 
+#Where only the part of the name after the first dash is displayed
+
+list="$(ls)"
+sw=0
+for i in $list
+do
+	sw=0
+	for (( j=0; j<${#i}; j++)); do
+		CH="${i:$j:1}"
+		if [ $sw -eq 1 ]
+		then
+			echo "${i:$j:${#i}}"
+			sw=0
+		fi
+
+		if [ "$CH" == "-" ]
+		then
+			sw=1
+		fi
+	done
+done
