@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#infinate loop
+
+
+function catchme(){
+	echo "I am invincible!!!"
+}
+
+trap catchme SIGTERM
+
+while true;do
+	echo "To infinity and beyond"
+	sleep 2
+done
