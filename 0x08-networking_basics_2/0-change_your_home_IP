@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Change the host file of a device
+
+cp /etc/hosts ~/hosts.new
+sed -i 's/127.0.0.1/127.0.0.2/' /etc/hosts.new
+echo -e '8.8.8.8\tfacebook.com' >> /etc/hosts.new
+cp -f ~/hosts.new /etc/hosts
