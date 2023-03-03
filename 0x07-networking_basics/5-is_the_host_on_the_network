@@ -2,4 +2,4 @@
 #Ping an ip adress 5 times : ip is a command line argument
 
 
-ping -c 5 $1
+ping -c 5 "$1"
