@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# We are connecting to a server using the privite key stored in school file
 
 ssh ubuntu@100.25.198.235 -i ~/.ssh/school
