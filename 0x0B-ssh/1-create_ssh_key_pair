@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Generate an ssh-keygen
+ssh-keygen -t rsa -N "betty" -f school
