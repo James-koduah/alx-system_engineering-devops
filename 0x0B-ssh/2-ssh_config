@@ -1,0 +1,6 @@
+Host firstserver
+	Hostname 100.25.198.235
+	User ubuntu
+	Port 22
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
