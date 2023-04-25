@@ -2,4 +2,4 @@
 # fix docker server
 
 echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 start
+sudo service apache2 start
