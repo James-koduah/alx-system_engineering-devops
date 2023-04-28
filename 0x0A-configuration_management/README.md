@@ -1,7 +1,7 @@
-#0x0A. Configuration management
+# 0x0A. Configuration management
 
 
-##To install puppet
+## To install puppet
 ```
 $ apt-get install -y ruby=1:2.7+1 --allow-downgrades
 $ apt-get install -y ruby-augeas
