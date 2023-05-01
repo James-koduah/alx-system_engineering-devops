@@ -8,3 +8,4 @@ sudo ufw allow ssh
 sudo ufw allow 'Nginx Full'
 sudo ufw enable
 sudo echo 'Hello world' > /var/www/html/index.*
+service nginx start
