@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Configure a new server to serve a custom message
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo touch /var/www/html/index.html
+sudo chmod 777 /var/www/html/index.html
+cd /var/www/html/
+echo $HOSTNAME > index.html
+sudo service nginx start
+
