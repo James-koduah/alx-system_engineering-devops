@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Create custom 404 page
-INDEX_COPY="Holberton School for the win!"
+INDEX_COPY="Hello World"
 ERROR_COPY="Ceci n'est pas une page - 404"
 
 sudo apt-get -y update
