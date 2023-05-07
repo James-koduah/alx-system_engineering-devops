@@ -1,11 +1,31 @@
 #!/usr/bin/env bash
-# Configure a new server to serve a custom message
-
-sudo apt-get update
+# Configure a new server
+sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo touch /var/www/html/index.html
-sudo chmod 777 /var/www/html/index.html
-cd /var/www/html/
-echo $HOSTNAME > index.html
-sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+sudo mkdir -p /var/www/html /var/www/error
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+conf_file=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	add_header X-Served-By \$hostname;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://youtube.com permanent;
+	}
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+}"
 
+echo "$conf_file" > /etc/nginx/sites-enabled/default
+sudo service nginx restart
