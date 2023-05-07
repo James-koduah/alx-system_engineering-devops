@@ -5,8 +5,8 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html /var/www/error
 sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 conf_file=\
 "server {
 	listen 80 default_server;
@@ -14,7 +14,7 @@ conf_file=\
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
-	add_header X-Served-By \$hostname;
+	add_header X-Served-By \$HOSTNAME;
 	location / {
 		try_files \$uri \$uri/ =404;
 	}
@@ -27,5 +27,5 @@ conf_file=\
 	}
 }"
 
-echo "$conf_file" > /etc/nginx/sites-enabled/default
+echo "$conf_file" | sudo tee /etc/nginx/sites-enabled/default
 sudo service nginx restart
