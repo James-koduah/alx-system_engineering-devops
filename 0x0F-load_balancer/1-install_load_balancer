@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Configure HAProxy on a new server (load balancer)
+# This is for a Ubuntu Focal 20.04 LTS. HAProxy version 2.7-stable
+
+sudo apt-get -y install --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.7
+sudo apt-get -y install haproxy=2.7.\*
+conf_file=\
+"frontend myfrontend
+        mode http
+        bind *:80
+        default_backend myservers
+
+backend myservers
+        mode http
+        server server1 18.210.17.3:80
+        server server2 35.153.232.142:80"
+echo "$conf_file" | sudo tee -a /etc/haproxy/haproxy.cfg 
+sudo systemctl restart haproxy
