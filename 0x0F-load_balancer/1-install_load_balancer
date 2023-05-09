@@ -2,6 +2,7 @@
 # Configure HAProxy on a new server (load balancer)
 # This is for a Ubuntu Focal 20.04 LTS. HAProxy version 2.7-stable
 
+sudo apt-get -y update
 sudo apt-get -y install --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.7
 sudo apt-get -y install haproxy=2.7.\*
