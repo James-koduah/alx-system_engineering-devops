@@ -1,3 +1,4 @@
+# Add a nginx header
 Exec {
   path => ['/bin', '/usr/bin'],
 }
