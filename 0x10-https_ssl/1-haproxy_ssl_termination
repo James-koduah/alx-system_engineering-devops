@@ -1,0 +1,21 @@
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        retries 3
+        option redispatch
+        timeout connect  5000
+        timeout client  10000
+        timeout server  10000
+
+frontend myfrontend
+        mode http
+        bind *:80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.jaskin.tech/fullchain.pem
+        default_backend myservers
+
+backend myservers
+        mode http
+        server server1 18.210.17.3:80
+        server server2 35.153.232.142:80
