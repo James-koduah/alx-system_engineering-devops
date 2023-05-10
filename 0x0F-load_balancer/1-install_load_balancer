@@ -6,6 +6,7 @@ sudo apt-get -y update
 sudo apt-get -y install --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.7
 sudo apt-get -y install haproxy=2.7.\*
+
 conf_file=\
 "frontend myfrontend
         mode http
@@ -14,7 +15,9 @@ conf_file=\
 
 backend myservers
         mode http
-        server server1 18.210.17.3:80
-        server server2 35.153.232.142:80"
+	balance roundrobin
+        server server1 18.210.17.3:80 check
+        server server2 35.153.232.142:80 check"
 echo "$conf_file" | sudo tee -a /etc/haproxy/haproxy.cfg 
-sudo systemctl restart haproxy
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+sudo service haproxy start
