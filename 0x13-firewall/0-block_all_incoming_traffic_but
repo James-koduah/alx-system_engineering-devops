@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+sudo ufw reset
+sudo ufw enable
 ufw allow ssh
 ufw allow 'Nginx full'
-ufw allow ssl
