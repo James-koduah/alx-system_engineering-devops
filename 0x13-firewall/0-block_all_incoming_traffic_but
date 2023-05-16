@@ -1,2 +1,3 @@
 ufw allow ssh
 ufw allow 'Nginx full'
+ufw allow ssl
