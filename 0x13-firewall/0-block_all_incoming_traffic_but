@@ -1,0 +1,2 @@
+ufw allow ssh
+ufw allow 'Nginx full'
