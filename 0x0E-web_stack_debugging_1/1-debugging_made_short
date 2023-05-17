@@ -2,3 +2,4 @@
 # fix a nginx server not responding to port 80
 sudo ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
+rm /run/nginx.pid
