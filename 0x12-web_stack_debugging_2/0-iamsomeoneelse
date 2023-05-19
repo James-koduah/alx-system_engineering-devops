@@ -2,7 +2,10 @@
 # Run a command as another user
 
 if [ $# -eq 0 ];
-then	
-	exit 1
+then
+        exit 1
 fi
-su - "$1" -c "whoami"
+
+command="su - "$1" -c "whoami""
+c=$(eval \${command})
+echo $c
