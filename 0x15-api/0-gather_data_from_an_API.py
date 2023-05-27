@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 """Use an Api of Employees todo and display tasks done"""
-from urllib import request
 import json
 import sys
+from urllib import request
 
 
 if __name__ == "__main__":
@@ -29,7 +29,6 @@ if __name__ == "__main__":
             if dicts["completed"] is True:
                 total_tasks_done += 1
                 titles.append(dicts["title"])
-
 
     print('Employee {} is done with tasks({}/{}):'
           .format(user_name, total_tasks_done, total_tasks))
