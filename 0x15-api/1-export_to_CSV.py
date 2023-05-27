@@ -30,13 +30,13 @@ if __name__ == "__main__":
             if dicts["completed"] is True:
                 total_tasks_done += 1
                 titles.append(dicts["title"])
-            c = [str(id), str(user_name), str(dicts["completed"]), str(dicts["title"])]
+            c = [id, user_name, dicts["completed"], dicts["title"]]
             csv_format.append(c)
     print('Employee {} is done with tasks({}/{}):'
           .format(user_name, total_tasks_done, total_tasks))
     for i in titles:
         print('\t {}'.format(i))
 
-    with open('{}.csv'.format(id), 'w') as f:
+    with open('{}.csv'.format(id), 'w', encoding="UTF8") as f:
         writer = csv.writer(f)
         writer.writerows(csv_format)
