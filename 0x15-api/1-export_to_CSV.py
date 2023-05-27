@@ -23,14 +23,18 @@ if __name__ == "__main__":
     titles = []
     csv_format = []
 
-
     for dicts in todo:
         if dicts["userId"] == id:
             total_tasks += 1
             if dicts["completed"] is True:
                 total_tasks_done += 1
                 titles.append(dicts["title"])
-            c = [id, user_name, dicts["completed"], dicts["title"]]
+            c = [
+                    id,
+                    user[id-1]["username"],
+                    dicts["completed"],
+                    dicts["title"]
+                ]
             csv_format.append(c)
     print('Employee {} is done with tasks({}/{}):'
           .format(user_name, total_tasks_done, total_tasks))
