@@ -10,7 +10,7 @@ if __name__ == "__main__":
     todos = request.urlopen('https://jsonplaceholder.typicode.com/todos/',
                             data=None)
     userss = request.urlopen('https://jsonplaceholder.typicode.com/users',
-                            data=None)
+                             data=None)
 
     todo = json.load(todos)
     users = json.load(userss)
