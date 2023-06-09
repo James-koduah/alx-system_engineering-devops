@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Run a command as another user
-
-if [ $# -eq 0 ];
-then
-        exit 1
-fi
-su - "$1" -c "whoami"

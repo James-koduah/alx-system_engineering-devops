@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Run nginx as master <nginx> user
-chmod 777 /etc/nginx/nginx.conf
-pkill apache2
-sed -i 's/listen 80/listen 8080/g' /etc/nginx/sites-enabled/default
-sed -i 's/listen [::]:80/listen [::]:8080/g' /etc/nginx/sites-enabled/default
-sudo -u nginx service nginx start
