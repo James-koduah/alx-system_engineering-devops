@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#A bash script that uses <dig> to display information about a domain
+
+no_sub_domain () {
+	subs=( "www" "lb-01" "web-01" "web-02" )
+	for i in "${subs[@]}"
+	do
+		INFO=$(dig $i.$1 | grep -A1 'ANSWER SECTION:' | tail -1)
+		RECORD_TYPE=$(echo $INFO | awk '{print $4}')
+		IP=$(echo $INFO | awk '{print $5}')
+		echo "The subdomain $i is a $RECORD_TYPE record and points to $IP"
+	done
+}
+
+sub_domain_given () {
+		INFO=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1)
+		RECORD_TYPE=$(echo $INFO | awk '{print $4}')
+		IP=$(echo $INFO | awk '{print $5}')
+		echo "The subdomain $2 is a $RECORD_TYPE record and points to $IP"
+}
+
+if [ $# -eq 1 ] 
+then
+	no_sub_domain $1
+elif [ $# -eq 2 ]
+then
+	sub_domain_given $1 $2
+fi
