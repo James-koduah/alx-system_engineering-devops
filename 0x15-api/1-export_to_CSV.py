@@ -45,6 +45,6 @@ if __name__ == '__main__':
         to_csv.append(info)
 
     with open('{}.csv'.format(user_id), 'w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for row in to_csv:
             writer.writerow(row)
