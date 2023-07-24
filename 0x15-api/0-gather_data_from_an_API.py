@@ -2,7 +2,6 @@
 """Return info about a todo list"""
 
 
-
 if __name__ == '__main__':
     import json
     import requests
@@ -24,11 +23,10 @@ if __name__ == '__main__':
     for todo in todos:
         if todo['userId'] == user_id:
             user_tasks.append(todo)
-            if todo['completed'] == True:
+            if todo['completed'] is True:
                 completed_tasks.append(todo)
-
 
     print('Employee {} is done with tasks({}/{}):'.
           format(user['name'], len(completed_tasks), len(user_tasks)))
     for task in completed_tasks:
-        print('\t{}'.format(task['title']))
+        print('\t {}'.format(task['title']))
