@@ -33,10 +33,8 @@ if __name__ == '__main__':
     print('Employee {} is done with tasks({}/{}):'.
           format(user['name'], len(completed_tasks), len(user_tasks)))
 
-
     for task in completed_tasks:
         print('\t {}'.format(task['title']))
-
 
     for task in user_tasks:
         status = task['completed']
