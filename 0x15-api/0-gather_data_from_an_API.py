@@ -1,5 +1,5 @@
+"""Return info about a todo list"""
 #!/usr/bin/python3
-"""return info about a todo list"""
 
 import json
 import requests
