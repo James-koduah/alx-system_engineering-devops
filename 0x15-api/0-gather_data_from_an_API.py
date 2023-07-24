@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """return info about a todo list"""
 
-import sys
-import requests
 import json
+import requests
+import sys
 
 user_id = int(sys.argv[1])
 
