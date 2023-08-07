@@ -2,6 +2,8 @@
 """Work with the reddit api"""
 
 import requests
+
+
 def top_ten(subreddit):
     """Get the number of subscribes to a the subreddit parameter"""
     headers = {
@@ -19,4 +21,3 @@ def top_ten(subreddit):
             print(item['data']['title'])
     else:
         print(None)
-
