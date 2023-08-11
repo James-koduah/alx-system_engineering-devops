@@ -12,15 +12,16 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
     sort = 'hot'
     limit = 30
     response = requests.get(
-            'https://www.reddit.com/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
-            subreddit,
-            sort,
-            limit,
-            n,
-            after if after else ''
-        ),
-        headers=headers,
-        allow_redirects=False
+            '{}/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
+                'https://www.reddit.com',
+                subreddit,
+                sort,
+                limit,
+                n,
+                after if after else ''
+            ),
+            headers=headers,
+            allow_redirects=False
     )
     if response.status_code == 200:
         data = response.json()['data']
